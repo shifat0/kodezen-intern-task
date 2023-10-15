@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.nav h4 {
+  cursor: pointer;
+}
+
+.nav ul li {
+  all: unset;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
