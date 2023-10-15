@@ -2,3 +2,71 @@
   margin: 0 auto;
   width: 1000px;
 }
+
+.main-items {
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 100px;
+}
+
+.main-items h1 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.main-items textarea {
+  max-width: 100%;
+  font-family: inherit;
+  text-transform: capitalize;
+  font-size: 50px;
+  font-weight: bold;
+  border-color: deeppink;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  text-wrap: wrap;
+}
+
+.main-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid gray;
+  border-style: dashed;
+  padding: 30px;
+}
+
+.main-upload-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-upload-btns button {
+  background-color: pink;
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.main-upload-btns input {
+  display: none;
+}
+
+.main-upload-btns label button {
+  font-size: 14px;
+  background-color: gray;
+}
+
+.main-folder-icon {
+  color: white;
+}
+
+.main-upload span {
+  color: gray;
+  font-style: italic;
+}
