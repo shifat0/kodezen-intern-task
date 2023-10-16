@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faBorderNone,
   faCaretDown,
+  faChevronDown,
   faCircleHalfStroke,
+  faDisplay,
   faGear,
   faGlobe,
   faPencil,
+  faRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
+  const [showPopUp, setShowPopUp] = useState(false);
   return (
     <div className="sidebar-container">
       <div className="sidebar-header">
@@ -68,7 +72,11 @@ const Sidebar = () => {
             />
             <FontAwesomeIcon
               icon={faPencil}
-              style={{ backgroundColor: "lightgray", padding: "5px" }}
+              style={{
+                backgroundColor: "lightgray",
+                padding: "5px",
+              }}
+              onClick={() => setShowPopUp(!showPopUp)}
             />
           </div>
         </div>
@@ -95,6 +103,132 @@ const Sidebar = () => {
             </select>
           </div>
         </div>
+        {showPopUp && (
+          <div className="sidebar-pop-up">
+            <span className="sidebar-pop-up-arrow"></span>
+            <div className="sidebar-pop-up-header">
+              <h4>Typography</h4>
+              <div className="sidebar-pop-up-header-btns">
+                <button>
+                  <FontAwesomeIcon icon={faRotateLeft} />
+                </button>
+                <button>+</button>
+              </div>
+            </div>
+            <div className="sidebar-pop-up-items">
+              <div className="sidebar-pop-up-item">
+                <span>Family</span>
+                <select>
+                  <option>Roboto</option>
+                  <option>Times new roman</option>
+                  <option>Arial</option>
+                </select>
+              </div>
+              <div className="sidebar-pop-up-item">
+                <div className="sidebar-pop-up-item-tag">
+                  <div className="sidebar-pop-up-item-tag-label">
+                    <span>Size</span>
+                    <FontAwesomeIcon icon={faDisplay} />
+                  </div>
+                  <input type="range" defaultValue="0" />
+                </div>
+                <div className="sidebar-pop-up-item-select">
+                  <div className="sidebar-pop-up-item-select-label">
+                    <span>px</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </div>
+                  <input type="number" min="0" />
+                </div>
+              </div>
+              <div className="sidebar-pop-up-item">
+                <span>Weight</span>
+                <select>
+                  <option>100</option>
+                  <option>200</option>
+                  <option>300</option>
+                  <option>400</option>
+                  <option>500</option>
+                  <option>600(semi-bold)</option>
+                </select>
+              </div>
+              <div className="sidebar-pop-up-item">
+                <span>Transform</span>
+                <select>
+                  <option>Default</option>
+                  <option>capitalize</option>
+                  <option>uppercase</option>
+                  <option>lowercase</option>
+                </select>
+              </div>
+              <div className="sidebar-pop-up-item">
+                <span>Style</span>
+                <select>
+                  <option>Default</option>
+                  <option>italic</option>
+                  <option>normal</option>
+                  <option>oblique</option>
+                </select>
+              </div>
+              <div className="sidebar-pop-up-item">
+                <span>Decoration</span>
+                <select>
+                  <option>Default</option>
+                  <option>dashed</option>
+                  <option>dotted</option>
+                  <option>underline</option>
+                </select>
+              </div>
+              <div className="sidebar-pop-up-item">
+                <div className="sidebar-pop-up-item-tag">
+                  <div className="sidebar-pop-up-item-tag-label">
+                    <span>Line Height</span>
+                    <FontAwesomeIcon icon={faDisplay} />
+                  </div>
+                  <input type="range" defaultValue="0" />
+                </div>
+                <div className="sidebar-pop-up-item-select">
+                  <div className="sidebar-pop-up-item-select-label">
+                    <span>px</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </div>
+                  <input type="number" min="0" />
+                </div>
+              </div>
+              <div className="sidebar-pop-up-item">
+                <div className="sidebar-pop-up-item-tag">
+                  <div className="sidebar-pop-up-item-tag-label">
+                    <span>Letter Spacing</span>
+                    <FontAwesomeIcon icon={faDisplay} />
+                  </div>
+                  <input type="range" defaultValue="0" />
+                </div>
+                <div className="sidebar-pop-up-item-select">
+                  <div className="sidebar-pop-up-item-select-label">
+                    <span>px</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </div>
+                  <input type="number" min="0" />
+                </div>
+              </div>
+              <div className="sidebar-pop-up-item">
+                <div className="sidebar-pop-up-item-tag">
+                  <div className="sidebar-pop-up-item-tag-label">
+                    <span>Word Spacing</span>
+                    <FontAwesomeIcon icon={faDisplay} />
+                  </div>
+                  <input type="range" defaultValue="0" />
+                </div>
+                <div className="sidebar-pop-up-item-select">
+                  <div className="sidebar-pop-up-item-select-label">
+                    <span>px</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </div>
+                  <input type="number" min="0" />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="sidebar-footer">
         <span>Need Help</span>

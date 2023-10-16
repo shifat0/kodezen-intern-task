@@ -43,6 +43,7 @@
 
 .sidebar-items {
   padding: 0 10px 0 10px;
+  position: relative;
 }
 
 .sidebar-items-header {
@@ -112,4 +113,106 @@
   position: absolute;
   top: 1px;
   left: 3.5px;
+}
+
+.sidebar-pop-up {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  transform: translateY(150px);
+  box-shadow: -2px -2px 8px 3px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.sidebar-pop-up-arrow {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid white;
+  position: absolute;
+  top: -10px;
+  right: 8px;
+}
+
+.sidebar-pop-up-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-pop-up-header-btns button {
+  margin-left: 10px;
+  background-color: white;
+  border: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  font-size: 14px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-pop-up-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 15px;
+  font-size: 14px;
+}
+
+.sidebar-pop-up-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 55px;
+}
+
+.sidebar-pop-up-item select {
+  width: 100px;
+}
+
+.sidebar-pop-up-item input,
+select {
+  font-family: inherit;
+  outline: none;
+  border: 1px solid gray;
+}
+
+.sidebar-pop-up-item-tag {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-pop-up-item-tag-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-pop-up-item-select {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-pop-up-item-select-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-end;
+}
+
+.sidebar-pop-up-item-select input {
+  width: 50px;
+  align-self: flex-end;
+}
+
+.sidebar-pop-up-item input[type="range"] {
+  all: unset;
+  background-color: lightgray;
+  height: 5px;
+  border-radius: 5px;
 }
