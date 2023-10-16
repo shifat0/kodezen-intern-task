@@ -16,6 +16,41 @@ import {
 
 const Sidebar = () => {
   const [showPopUp, setShowPopUp] = useState(false);
+  const [typography, setTypography] = useState({
+    fontFamily: "",
+    size: 0,
+    weight: "",
+    transform: "",
+    style: "",
+    decoration: "",
+    lineHeight: 0,
+    letterSpacing: 0,
+    wordSpacing: 0,
+  });
+
+  // console.log(typography);
+
+  const handleChange = (e, tag) => {
+    // console.log(e.target.value);
+    if (tag === "size") setTypography({ ...typography, size: e.target.value });
+    if (tag === "lh")
+      setTypography({ ...typography, lineHeight: e.target.value });
+    if (tag === "ls")
+      setTypography({ ...typography, letterSpacing: e.target.value });
+    if (tag === "ws")
+      setTypography({ ...typography, wordSpacing: e.target.value });
+    if (tag === "family")
+      setTypography({ ...typography, fontFamily: e.target.value });
+    if (tag === "weight")
+      setTypography({ ...typography, weight: e.target.value });
+    if (tag === "transform")
+      setTypography({ ...typography, transform: e.target.value });
+    if (tag === "style")
+      setTypography({ ...typography, style: e.target.value });
+    if (tag === "decoration")
+      setTypography({ ...typography, decoration: e.target.value });
+  };
+
   return (
     <div className="sidebar-container">
       <div className="sidebar-header">
@@ -118,7 +153,7 @@ const Sidebar = () => {
             <div className="sidebar-pop-up-items">
               <div className="sidebar-pop-up-item">
                 <span>Family</span>
-                <select>
+                <select onChange={(e) => handleChange(e, "family")}>
                   <option>Roboto</option>
                   <option>Times new roman</option>
                   <option>Arial</option>
@@ -130,19 +165,34 @@ const Sidebar = () => {
                     <span>Size</span>
                     <FontAwesomeIcon icon={faDisplay} />
                   </div>
-                  <input type="range" defaultValue="0" />
+                  <input
+                    type="range"
+                    value={typography.size === "" ? 0 : typography.size}
+                    min="0"
+                    max="100"
+                    onChange={(e) => handleChange(e, "size")}
+                  />
                 </div>
                 <div className="sidebar-pop-up-item-select">
                   <div className="sidebar-pop-up-item-select-label">
                     <span>px</span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </div>
-                  <input type="number" min="0" />
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={typography.size}
+                    onChange={(e) => handleChange(e, "size")}
+                  />
                 </div>
               </div>
               <div className="sidebar-pop-up-item">
                 <span>Weight</span>
-                <select>
+                <select
+                  defaultValue="600(semi-bold)"
+                  onChange={(e) => handleChange(e, "weight")}
+                >
                   <option>100</option>
                   <option>200</option>
                   <option>300</option>
@@ -153,7 +203,7 @@ const Sidebar = () => {
               </div>
               <div className="sidebar-pop-up-item">
                 <span>Transform</span>
-                <select>
+                <select onChange={(e) => handleChange(e, "transform")}>
                   <option>Default</option>
                   <option>capitalize</option>
                   <option>uppercase</option>
@@ -162,7 +212,7 @@ const Sidebar = () => {
               </div>
               <div className="sidebar-pop-up-item">
                 <span>Style</span>
-                <select>
+                <select onChange={(e) => handleChange(e, "style")}>
                   <option>Default</option>
                   <option>italic</option>
                   <option>normal</option>
@@ -171,7 +221,7 @@ const Sidebar = () => {
               </div>
               <div className="sidebar-pop-up-item">
                 <span>Decoration</span>
-                <select>
+                <select onChange={(e) => handleChange(e, "decoration")}>
                   <option>Default</option>
                   <option>dashed</option>
                   <option>dotted</option>
@@ -184,14 +234,28 @@ const Sidebar = () => {
                     <span>Line Height</span>
                     <FontAwesomeIcon icon={faDisplay} />
                   </div>
-                  <input type="range" defaultValue="0" />
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={
+                      typography.lineHeight === "" ? 0 : typography.lineHeight
+                    }
+                    onChange={(e) => handleChange(e, "lh")}
+                  />
                 </div>
                 <div className="sidebar-pop-up-item-select">
                   <div className="sidebar-pop-up-item-select-label">
                     <span>px</span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </div>
-                  <input type="number" min="0" />
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={typography.lineHeight}
+                    onChange={(e) => handleChange(e, "lh")}
+                  />
                 </div>
               </div>
               <div className="sidebar-pop-up-item">
@@ -200,14 +264,30 @@ const Sidebar = () => {
                     <span>Letter Spacing</span>
                     <FontAwesomeIcon icon={faDisplay} />
                   </div>
-                  <input type="range" defaultValue="0" />
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={
+                      typography.letterSpacing === ""
+                        ? 0
+                        : typography.letterSpacing
+                    }
+                    onChange={(e) => handleChange(e, "ls")}
+                  />
                 </div>
                 <div className="sidebar-pop-up-item-select">
                   <div className="sidebar-pop-up-item-select-label">
                     <span>px</span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </div>
-                  <input type="number" min="0" />
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={typography.letterSpacing}
+                    onChange={(e) => handleChange(e, "ls")}
+                  />
                 </div>
               </div>
               <div className="sidebar-pop-up-item">
@@ -216,14 +296,28 @@ const Sidebar = () => {
                     <span>Word Spacing</span>
                     <FontAwesomeIcon icon={faDisplay} />
                   </div>
-                  <input type="range" defaultValue="0" />
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={
+                      typography.wordSpacing === "" ? 0 : typography.wordSpacing
+                    }
+                    onChange={(e) => handleChange(e, "ws")}
+                  />
                 </div>
                 <div className="sidebar-pop-up-item-select">
                   <div className="sidebar-pop-up-item-select-label">
                     <span>px</span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </div>
-                  <input type="number" min="0" />
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={typography.wordSpacing}
+                    onChange={(e) => handleChange(e, "ws")}
+                  />
                 </div>
               </div>
             </div>
