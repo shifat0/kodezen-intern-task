@@ -18,7 +18,7 @@
   max-width: 100%;
   font-family: inherit;
   text-transform: capitalize;
-  font-size: 50px;
+  /* font-size: 50px; */
   font-weight: bold;
   border-color: deeppink;
   margin-top: 20px;
@@ -57,13 +57,19 @@
   display: none;
 }
 
-.main-upload-btns label button {
+.main-upload-btns label {
   font-size: 14px;
   background-color: gray;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .main-folder-icon {
   color: white;
+  position: absolute;
+  transform: translate(60%, 50%);
 }
 
 .main-upload span {

@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
   border-right: 1px solid lightgray;
+  position: relative;
 }
 
 .sidebar-header {
@@ -81,10 +82,10 @@
 }
 
 .sidebar-input-select {
-  border: unset;
   border: 1px solid gray;
-  width: 100px;
-  outline: unset;
+  outline: none;
+  border-radius: 5px;
+  width: 120px;
   padding: 5px;
   cursor: pointer;
   font-family: inherit;
@@ -215,4 +216,12 @@ select {
   background-color: lightgray;
   height: 5px;
   border-radius: 5px;
+}
+
+.sidebar-collapse-arrow {
+  padding: 15px 5px;
+  position: absolute;
+  right: -20px;
+  transform: translateY(50vh);
+  box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.4);
 }

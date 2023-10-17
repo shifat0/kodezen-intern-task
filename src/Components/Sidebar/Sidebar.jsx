@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,6 +6,7 @@ import {
   faBorderNone,
   faCaretDown,
   faChevronDown,
+  faChevronLeft,
   faCircleHalfStroke,
   faDisplay,
   faGear,
@@ -13,25 +14,15 @@ import {
   faPencil,
   faRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import { typographyContext } from "../../App";
 
 const Sidebar = () => {
   const [showPopUp, setShowPopUp] = useState(false);
-  const [typography, setTypography] = useState({
-    fontFamily: "",
-    size: 0,
-    weight: "",
-    transform: "",
-    style: "",
-    decoration: "",
-    lineHeight: 0,
-    letterSpacing: 0,
-    wordSpacing: 0,
-  });
+  const [typography, setTypography] = useContext(typographyContext);
+  console.log(typography);
 
-  // console.log(typography);
-
+  // handling onChange events
   const handleChange = (e, tag) => {
-    // console.log(e.target.value);
     if (tag === "size") setTypography({ ...typography, size: e.target.value });
     if (tag === "lh")
       setTypography({ ...typography, lineHeight: e.target.value });
@@ -58,6 +49,7 @@ const Sidebar = () => {
         <h4>Edit Heading</h4>
         <FontAwesomeIcon icon={faBorderNone} />
       </div>
+
       <div className="sidebar-options">
         <div className="sidebar-options-items">
           <FontAwesomeIcon icon={faPencil} />
@@ -72,6 +64,7 @@ const Sidebar = () => {
           <span>Advanced</span>
         </div>
       </div>
+
       <div className="sidebar-items">
         <div className="sidebar-items-header">
           <FontAwesomeIcon icon={faCaretDown} />
@@ -129,15 +122,16 @@ const Sidebar = () => {
         </div>
         <div className="sidebar-item">
           <span>Blend Mode</span>
-          <div className="sidebar-item-icons">
-            <select className="sidebar-input-select">
-              <option>Normal</option>
-              <option>Multiply</option>
-              <option>Overlay</option>
-              <option>Color</option>
-            </select>
-          </div>
+          <select className="sidebar-input-select">
+            <option>Normal</option>
+            <option>Multiply</option>
+            <option>Overlay</option>
+            <option>Color</option>
+          </select>
         </div>
+
+        {/* Typography Pop-Up */}
+
         {showPopUp && (
           <div className="sidebar-pop-up">
             <span className="sidebar-pop-up-arrow"></span>
@@ -155,8 +149,9 @@ const Sidebar = () => {
                 <span>Family</span>
                 <select onChange={(e) => handleChange(e, "family")}>
                   <option>Roboto</option>
-                  <option>Times new roman</option>
-                  <option>Arial</option>
+                  <option>Gabarito</option>
+                  <option>Fira Sans</option>
+                  <option>Rubik</option>
                 </select>
               </div>
               <div className="sidebar-pop-up-item">
@@ -190,7 +185,7 @@ const Sidebar = () => {
               <div className="sidebar-pop-up-item">
                 <span>Weight</span>
                 <select
-                  defaultValue="600(semi-bold)"
+                  defaultValue="600"
                   onChange={(e) => handleChange(e, "weight")}
                 >
                   <option>100</option>
@@ -198,7 +193,8 @@ const Sidebar = () => {
                   <option>300</option>
                   <option>400</option>
                   <option>500</option>
-                  <option>600(semi-bold)</option>
+                  <option>600</option>
+                  <option>700</option>
                 </select>
               </div>
               <div className="sidebar-pop-up-item">
@@ -324,12 +320,17 @@ const Sidebar = () => {
           </div>
         )}
       </div>
+
       <div className="sidebar-footer">
         <span>Need Help</span>
         <p>
           <span>?</span>
         </p>
       </div>
+
+      <span className="sidebar-collapse-arrow">
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </span>
     </div>
   );
 };
